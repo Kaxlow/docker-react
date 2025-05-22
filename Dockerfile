@@ -9,5 +9,7 @@ RUN npm run build
 
 #run phase
 FROM nginx
+#tell AWS elastic beanstalk to map port 80 on container to incoming requests
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 #nginx container's default command is to start nginx
